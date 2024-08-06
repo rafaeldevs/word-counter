@@ -4,7 +4,7 @@ Counts the number of words given a specified directory
 
 ## Quickstart
 
-[](QUICKSTART.md)
+[QUICKSTART](QUICKSTART.md)
 
 ## Introduction
 
