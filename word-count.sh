@@ -66,7 +66,7 @@ echo "---------------------------------------------"
 python3 ./calc-reading-time.py 
 
 # Calculates using Clojure
-./metronome.clj
+./metronome.clj file
 
 # Pretty prints JSON using jq
 jq . $F_CACHE_SHARE

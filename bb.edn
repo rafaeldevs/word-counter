@@ -20,7 +20,7 @@
         :task (shell "./metronome.clj reading-speed")}
   
 
-  number-of-words {:doc "Number of words"
+  word-total {:doc "The Word Total of the path provided."
                :task (shell "./metronome.clj number-of-words")} 
   
   reading-time-hour {:doc "Calculated reading time (hr)"
@@ -29,7 +29,7 @@
   reading-time-minute {:doc "Calculated reading time (min)"
                    :task (shell "./metronome.clj reading-time-minute")}
 
-  five-minute-verses {:doc "Number of five minute verses"
+  reading-time-verses {:doc "Calculated reading time (5 min)"
                      :task (shell "./metronome.clj five-minute-verses")}
 
 

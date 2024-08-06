@@ -22,7 +22,7 @@ F_CACHE_SHARE = "cache/shareable-file.json"
 
 ERROR = True # True displays error messages and False should not
 DEBUG = True # True displays debug messages and False should not
-SIDE_EFFECT = True # True displays Side Effect messages and False should not (recommended True for development)
+ACTION = True # True displays Side Effect messages and False should not (recommended True for development)
 
 reading_speed=225 # Configuration for reading speed. Used during data analysis
 
@@ -65,9 +65,9 @@ class Logger:
     def debug(self, message):
         if DEBUG == True:
             print(f"DEBUG {message}")
-    def side_effect(self, message):
-        if SIDE_EFFECT == True:
-            print(f"SIDE-EFFECT {message}")
+    def action(self, message):
+        if ACTION == True:
+            print(f"ACTION {message}")
 
 
 if __name__ == "__main__":
@@ -85,4 +85,4 @@ if __name__ == "__main__":
         file.write(json.dumps(out_dictionary)) # write to the file the out_dictionary JSON serialization
 
 
-    log.side_effect(f"'{file_path}' created successfully.") # Log the file creation side effect
+    log.action(f"'{file_path}' created successfully.") # Log the file creation action
