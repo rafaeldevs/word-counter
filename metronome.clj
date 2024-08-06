@@ -22,6 +22,8 @@
           '[clojure.java.io :as io]
           )
 
+(def f-cache-share "cache/shareable-file.json") ; F_CACHE_SHARE
+
 (defn rewrite-file [file-path new-content]
   (with-open [writer (io/writer file-path)]
     (.write writer new-content)))
@@ -29,7 +31,7 @@
 (defn five-min-verses[reading_time]
   (/ reading_time 5))
 
-(def input-map (json/parse-string (slurp "cache/shareable-file.json") true)) ; true keywords
+(def input-map (json/parse-string (slurp f-cache-share) true)) ; true keywords
 
 (defn min->hrs [reading-time-in-min]
   (/ reading-time-in-min 60))
@@ -54,4 +56,4 @@
 (def output-map-0 (assoc input-map :num_five_min_verses (five-min-verses (:calculated_reading_time_in_minutes input-map))))
 (def output-map-1 (assoc output-map-0 :calculated_reading_time_in_hours (min->hrs (:calculated_reading_time_in_minutes output-map-0))))
 
-(rewrite-file "cache/shareable-file.json" (json/generate-string output-map-1))
+(rewrite-file f-cache-share (json/generate-string output-map-1))
