@@ -8,8 +8,6 @@ This guide provides an overview of the Babashka tasks available for this word co
 
 > Clojure is a concise, powerful, and performant general-purpose  programming language that runs on the Java Virtual Machine, Common Language Runtime, JavaScript runtimes (aka Node.js or modern mobile/desktop web browsers), and Babashka.
 
-See the [Babashka documentation](https://github.com/babashka/babashka#installation) for more information
-
 ## Requirements
 
 This project ships with batteries included. In other words after installing Babashka and granting the correct permissions to the `word-count.sh` and `metronome.clj` files you should be able to issue commands successfully.
@@ -20,9 +18,13 @@ This project ships with batteries included. In other words after installing Baba
 
 1. **Install Babashka**: Make sure you have Babashka installed on your system. You can download it from [Babashka GitHub](https://github.com/babashka/babashka).
 
-2. **Execute Tasks**: The first two tasks are ready, rest need QA
+2. **Grant executable file permissions to files**: `word-count.sh` and `metronome.clj`
+   a. `chmod +x word-count.sh`
+   b. `chmod +x metronome.clj`
 
-3. **Customize**: In development
+3. **Execute Tasks**: The first two tasks are ready, rest need QA
+
+4. **Customize**: In development
 
 By following this guide, you can efficiently utilize the Babashka tasks to manage and analyze word counts and reading times in your directory.
 
