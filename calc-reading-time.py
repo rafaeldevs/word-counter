@@ -20,9 +20,9 @@ import csv
 F_CACHE_NUM_WORDS = "cache/num-words.csv"
 F_CACHE_SHARE = "cache/shareable-file.json"
 
-ERROR = True # True displays error messages and False should not
-DEBUG = True # True displays debug messages and False should not
-ACTION = True # True displays Side Effect messages and False should not (recommended True for development)
+ERROR = False # True displays error messages and False should not
+DEBUG = False # True displays debug messages and False should not
+ACTION = False # True displays Side Effect messages and False should not (recommended True for development)
 
 reading_speed=225 # Configuration for reading speed. Used during data analysis
 
