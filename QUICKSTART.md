@@ -2,7 +2,7 @@
 
 This guide provides an overview of the Babashka tasks available for this word counting tool and document statistical analysis using Babashka. Each task has a specific function and can be executed via the command line.
 
-> *Babashka Task* a discrete unit of work that can be executed independently or as part of a sequence of its kind.
+> [*Babashka Task*](docs/babashka-task.md) a discrete unit of work that can be executed independently or as part of a sequence of its kind.
 
 > *Babashka* is a native Clojure interpreter for scripting with fast startup.
 
