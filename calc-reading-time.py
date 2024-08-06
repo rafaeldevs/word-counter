@@ -17,7 +17,8 @@ import json
 from pathlib import Path
 import csv
 
-
+F_CACHE_NUM_WORDS = "cache/num-words.csv"
+F_CACHE_SHARE = "cache/shareable-file.json"
 
 ERROR = True # True displays error messages and False should not
 DEBUG = True # True displays debug messages and False should not
@@ -73,12 +74,12 @@ if __name__ == "__main__":
 
     log = Logger() # log object initialization
 
-    word_count = sum(int(row[1]) for i, row in enumerate(csv.reader(open("cache/num-words.csv"))) if i > 0)
+    word_count = sum(int(row[1]) for i, row in enumerate(csv.reader(open(F_CACHE_NUM_WORDS))) if i > 0)
 
     out_dictionary = main({"num_words": word_count, "reading_speed": reading_speed})
     log.debug("Intended output before caching to shareable-file.json: " + str(out_dictionary))
 
-    file_path = Path("cache/shareable-file.json")
+    file_path = Path(F_CACHE_SHARE)
 
     with file_path.open('w') as file: # open the file with the option to write to it
         file.write(json.dumps(out_dictionary)) # write to the file the out_dictionary JSON serialization
