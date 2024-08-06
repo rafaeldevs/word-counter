@@ -2,7 +2,7 @@ Here is a Quickstart guide for the Babashka tasks you've described:
 
 ## Babashka Tasks Quickstart Guide
 
-This guide provides an overview of the various tasks available for word count and reading time calculations using Babashka. Each task has a specific function and can be executed via the command line.
+This guide provides an overview of the tasks available for this word counting tool and document statistical analysis using Babashka. Each task has a specific function and can be executed via the command line.
 
 ### Tasks
 
