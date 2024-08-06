@@ -7,7 +7,7 @@ This guide provides an overview of the tasks available for this word counting to
 ### Tasks
 
 1. **Directory**
-   - **Description:** Count the number of words in the directory.
+   - **Description:** Given a directory sums the number of words and more
    - **Command:** `bb directory`
    - **Task:** Executes the `./word-count.sh book` script.
    - **Documentation:** `Number of words in directory`
@@ -18,7 +18,7 @@ This guide provides an overview of the tasks available for this word counting to
    ![](screenshots/bb-directory.png)
 
 2. **Word Count**
-   - **Description:** List of durations in seconds.
+   - **Description:** Renders the total Reading time in seconds for the directory
    - **Command:** `bb word-count`
    - **Task:** Executes the `./csv.clj cache/num-words.csv` script.
    - **Documentation:** `List of durations in seconds`
@@ -95,8 +95,8 @@ This guide provides an overview of the tasks available for this word counting to
 
 1. **Install Babashka**: Make sure you have Babashka installed on your system. You can download it from [Babashka GitHub](https://github.com/babashka/babashka).
 
-2. **Execute Tasks**: Use the commands listed above to execute the respective tasks.
+2. **Execute Tasks**: The first two tasks are ready, rest need QA
 
-3. **Customize**: Modify the scripts (`word-count.sh`, `csv.clj`, `metronome.clj`) as per your requirements.
+3. **Customize**: In development
 
 By following this guide, you can efficiently utilize the Babashka tasks to manage and analyze word counts and reading times in your directory.
