@@ -27,6 +27,10 @@ build_cache() {
 
 process_folder() {
     local path="$1"
+
+    # Initializes the cache CSV file
+    echo "file,num_words" > cache/num-words.csv
+
     # Check if the path is a directory
     if [ -d "$path" ]; then
         # List all entries in the directory in alphabetical order
@@ -49,8 +53,6 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-# initialize the cache
-echo "file,num_words" > cache/num-words.csv
 
 # Call the main function with the provided folder
 process_folder "$1"
