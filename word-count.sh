@@ -14,6 +14,9 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
+F_CACHE_NUM_WORDS=cache/num-words.csv
+F_CACHE_SHARE=cache/shareable-file.json
+
 
 # Builds a local cache file containing records of files and their corresponding word count
 build_cache() {
@@ -21,7 +24,7 @@ build_cache() {
     local num_words="$2"
 
     
-    echo "$file,$num_words" | tee -a cache/num-words.csv
+    echo "$file,$num_words" | tee -a $F_CACHE_NUM_WORDS
 }
 
 
@@ -29,7 +32,7 @@ process_folder() {
     local path="$1"
 
     # Initializes the cache CSV file
-    echo "file,num_words" > cache/num-words.csv
+    echo "file,num_words" > $F_CACHE_NUM_WORDS
 
     # Check if the path is a directory
     if [ -d "$path" ]; then
@@ -66,4 +69,4 @@ python3 ./calc-reading-time.py
 ./metronome.clj
 
 # Pretty prints JSON using jq
-jq . cache/shareable-file.json
+jq . $F_CACHE_SHARE
