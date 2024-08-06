@@ -1,8 +1,34 @@
 # Babashka Tasks Quickstart Guide
 
-This guide provides an overview of the tasks available for this word counting tool and document statistical analysis using Babashka. Each task has a specific function and can be executed via the command line.
+This guide provides an overview of the Babashka tasks available for this word counting tool and document statistical analysis using Babashka. Each task has a specific function and can be executed via the command line.
+
+> *Babashka Task* a discrete unit of work that can be executed independently or as part of a sequence of its kind.
+
+> *Babashka* is a native Clojure interpreter for scripting with fast startup.
+
+> Clojure is a concise, powerful, and performant general-purpose  programming language that runs on the Java Virtual Machine, Common Language Runtime, JavaScript runtimes (aka Node.js or modern mobile/desktop web browsers), and Babashka.
+
+See the [Babashka documentation](https://github.com/babashka/babashka#installation) for more information
+
+## Requirements
+
+This project ships with batteries included. In other words after installing Babashka and granting the correct permissions to the `word-count.sh` and `metronome.clj` files you should be able to issue commands successfully.
+
+- babashka v1.3.18
+
+## How to Use
+
+1. **Install Babashka**: Make sure you have Babashka installed on your system. You can download it from [Babashka GitHub](https://github.com/babashka/babashka).
+
+2. **Execute Tasks**: The first two tasks are ready, rest need QA
+
+3. **Customize**: In development
+
+By following this guide, you can efficiently utilize the Babashka tasks to manage and analyze word counts and reading times in your directory.
 
 ## Tasks
+
+The following task can be executed on the command line
 
 1. **Directory**
    - **Description:** Given a directory sums the number of words and more
@@ -88,13 +114,3 @@ This guide provides an overview of the tasks available for this word counting to
    ```bash
    bb reading-time-verses
    ```
-
-## How to Use
-
-1. **Install Babashka**: Make sure you have Babashka installed on your system. You can download it from [Babashka GitHub](https://github.com/babashka/babashka).
-
-2. **Execute Tasks**: The first two tasks are ready, rest need QA
-
-3. **Customize**: In development
-
-By following this guide, you can efficiently utilize the Babashka tasks to manage and analyze word counts and reading times in your directory.
