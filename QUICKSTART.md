@@ -1,10 +1,8 @@
-Here is a Quickstart guide for the Babashka tasks you've described:
-
-## Babashka Tasks Quickstart Guide
+# Babashka Tasks Quickstart Guide
 
 This guide provides an overview of the tasks available for this word counting tool and document statistical analysis using Babashka. Each task has a specific function and can be executed via the command line.
 
-### Tasks
+## Tasks
 
 1. **Directory**
    - **Description:** Given a directory sums the number of words and more
@@ -91,7 +89,7 @@ This guide provides an overview of the tasks available for this word counting to
    bb reading-time-verses
    ```
 
-### How to Use
+## How to Use
 
 1. **Install Babashka**: Make sure you have Babashka installed on your system. You can download it from [Babashka GitHub](https://github.com/babashka/babashka).
 
