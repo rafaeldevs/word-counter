@@ -15,6 +15,8 @@ This guide provides an overview of the tasks available for this word counting to
    bb directory
    ```
 
+   ![](screenshots/bb-directory.png)
+
 2. **Word Count**
    - **Description:** List of durations in seconds.
    - **Command:** `bb word-count`
@@ -23,6 +25,8 @@ This guide provides an overview of the tasks available for this word counting to
    ```bash
    bb word-count
    ```
+
+   ![](screenshots/bb-word-count.png)
 
 3. **Help**
    - **Description:** Display the help message.
