@@ -2,6 +2,10 @@
 
 Counts the number of words given a specified directory
 
+## Quickstart
+
+[](./QUICKSTART.md)
+
 ## Introduction
 
 I recall a conference where Robert C. Martin (aka Uncle Bob) talked about clean code best practices. I want to showcase one version of the code housekeeping process. The functions contained in this software project as a whole are split amung three different languages: BASH (Bourne Again Shell), Python, and Clojure (a hosted language). When development kicked off BASH was the langauge used to break ground. As Microsoft evangelist ... whose name escapes me but if only I could find ta certain Powershell tutorial... where he said BASH (he said Powershell but same thing considering the big picture) is the equivalent to having a virtual bazzoka. Do you have an business automation problem? BASH it a way. I'm paraphrasing a lot here. Moving on BASH is a tool that can be use to retrive/transform/load dat using it's pipeing feature which can take output form one command and can be passed on to another command. However because not all data is shaped the same. An example of different data shapes can be experienced when you sit down at a restaurant and the waitor hands you a document. You know that it will contain delicious assortments of appetizers, entrees, a la cart items, bevarages, and deserts. In contrast, when you are driving, green signs are informative-navigational, red light --> stop and green --> GO GO GO. 
