@@ -1,0 +1,38 @@
+{:paths ["script"]
+ :deps {medley/medley {:mvn/version "1.3.0"}}
+ :min-bb-version "0.4.0"
+ :tasks
+ {directory {:doc "Number of words in directory"
+           :task (shell "./word-count.sh book")}
+
+  word-count {:doc "List of durations in seconds"
+                     :task (shell "./csv.clj cache/num-words.csv")}
+
+  help {:doc "Help message"
+        :task (shell "./metronome.clj help")
+        :override-builtin true}
+  
+
+  file {:doc "Produces word-count, reading-count, ..., ..., ... , raw to .999-refined"
+        :task (shell "./metronome.clj file")}
+  
+  reading-speed {:doc "Reading speed (wpm)"
+        :task (shell "./metronome.clj reading-speed")}
+  
+
+  word-total {:doc "The Word Total of the path provided."
+               :task (shell "./metronome.clj number-of-words")} 
+  
+  reading-time-hour {:doc "Calculated reading time (hr)"
+                   :task (shell "./metronome.clj reading-time-hour")}
+
+  reading-time-minute {:doc "Calculated reading time (min)"
+                   :task (shell "./metronome.clj reading-time-minute")}
+
+  reading-time-verses {:doc "Calculated reading time (5 min)"
+                     :task (shell "./metronome.clj five-minute-verses")}
+
+
+  ;; More tasks to follow ...
+  ;; ...
+  }}

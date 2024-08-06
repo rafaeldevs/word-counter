@@ -14,6 +14,9 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
+F_CACHE_NUM_WORDS=cache/num-words.csv
+F_CACHE_SHARE=cache/shareable-file.json
+
 
 # Builds a local cache file containing records of files and their corresponding word count
 build_cache() {
@@ -21,70 +24,49 @@ build_cache() {
     local num_words="$2"
 
     
-    echo "$file,$num_words" >> cache/num-words.csv
+    echo "$file,$num_words" | tee -a $F_CACHE_NUM_WORDS
 }
 
-# Function to count words in a file
-count_words() {
-    local file="$1"
-    local num_words=$(wc -w < "$file")
-    echo "$num_words - $file"
-
-    build_cache $file $num_words
-}
-
-# Main function to process files in a folder recursively
-# process_folder() {
-#     local folder="$1"
-#     find "$folder" -type f -print0 | sort | while IFS= read -r -d '' file; do
-#         count_words "$file"
-#     done
-# }
 
 process_folder() {
     local path="$1"
+
+    # Initializes the cache CSV file
+    echo "file,num_words" > $F_CACHE_NUM_WORDS
+
     # Check if the path is a directory
     if [ -d "$path" ]; then
         # List all entries in the directory in alphabetical order
         local files=$(find "$path" -type f | sort)
         for file in $files; do
-            # Process each file
-            # echo "Processing $file"
-            count_words "$file"
-            # Replace the following line with whatever processing you want to do
-            # For example, you might want to run `grep`, `sed`, `awk`, or any custom command
+            # Count the number of words in a given file
+            local num_words=$(wc -w < "$file")
+
+            # PProcess each file with the count_words functionopulate the cache with the relative file path of the file and the number of words it contains
+            build_cache $file $num_words
         done
     else
         echo "$path is not a directory."
     fi
 }
 
-# Check if folder argument is provided
+# Check if folder argument is provided otherwise exit
 if [ -z "$1" ]; then
     echo "Usage: $0 <folder>"
     exit 1
 fi
 
-# initialize the cache
-echo "file,num_words" > cache/num-words.csv
 
 # Call the main function with the provided folder
 process_folder "$1"
 
-# Sums up the words for every article found
-NUM_WORDS=$(python3 -c 'import csv; total = sum(int(row[1]) for i, row in enumerate(csv.reader(open("cache/num-words.csv"))) if i > 0); print(total)')
-READING_SPEED=225 # Somewhere, the average reading speed is 200-250 words per minute.
-
 echo "---------------------------------------------"
 
 # Calculates the reading time using Python
-python3 ./calc-reading-time.py $NUM_WORDS $READING_SPEED
+python3 ./calc-reading-time.py 
 
 # Calculates using Clojure
-./metronome.clj
-
-printf "-"; sleep 0.2; printf "-"; sleep 0.2; printf "-"; printf "\n"; sleep 0.2
-printf "-"; sleep 0.2; printf "-"; sleep 1.0 ; printf "-"; printf "\n"; sleep 0.2
+./metronome.clj file
 
 # Pretty prints JSON using jq
-jq . cache/shareable-file.json
+jq . $F_CACHE_SHARE

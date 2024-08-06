@@ -18,40 +18,70 @@
 ; Metronome. A tool written in Clojure to process and render out metrics.
 
 
-(:require '[cheshire.core :as json]
+(require '[cheshire.core :as json]
           '[clojure.java.io :as io]
           )
 
+(def f-cache-share "cache/shareable-file.json") ; F_CACHE_SHARE
+
 (defn rewrite-file [file-path new-content]
   (with-open [writer (io/writer file-path)]
-    (.write writer new-content)))
+    (.write writer new-content))
+  "IO-Operation: The clojure.java.io/writer function was called then it executed")
 
 (defn five-min-verses[reading_time]
   (/ reading_time 5))
 
-(def input-map (json/parse-string (slurp "cache/shareable-file.json") true)) ; true keywords
+(def input-map (json/parse-string (slurp f-cache-share) true)) ; true keywords
 
 (defn min->hrs [reading-time-in-min]
   (/ reading-time-in-min 60))
 
-;; Describes the map created from the JSON string embedded in the slurped file.
-(println "input-map:" input-map)
-(println "input-map is a:" (type input-map))
-(println "input-map has the following keys:" (keys input-map))
 
 
-;; TODO get rid of these printing side effects
-;; Prints out the some of the key-value pairs defined in the map.
-(println "Calculated reading time (min):" (:calculated_reading_time_in_minutes input-map))
-(println "Calculated reading time (hr):" (min->hrs (:calculated_reading_time_in_minutes input-map)))
-(println "Number of words:" (:num_words input-map))
-(println "Reading speed (wpm):" (:reading_speed input-map))
-
-;; Prints a key-value pair after calculating in the runtime defined in this file.
-(println "Number of five minute verses:" (five-min-verses (:calculated_reading_time_in_minutes input-map)))
 
 ;; TODO theres a better way to do this
 (def output-map-0 (assoc input-map :num_five_min_verses (five-min-verses (:calculated_reading_time_in_minutes input-map))))
 (def output-map-1 (assoc output-map-0 :calculated_reading_time_in_hours (min->hrs (:calculated_reading_time_in_minutes output-map-0))))
 
-(rewrite-file "cache/shareable-file.json" (json/generate-string output-map-1))
+
+
+(defn -main [function]
+  (cond (= "help" function) (println "Available commands: file, help, ")
+
+        ;; Produces word-count, reading-count, ..., ..., ... , raw to .999-refined 
+        (= "file" function) (println (rewrite-file f-cache-share (json/generate-string output-map-1)))
+
+        ;; Reading speed (wpm) 
+        (= "reading-speed" function) (println (:reading_speed input-map))
+
+        ;; Number of words
+        (= "number-of-words" function) (println (:num_words input-map))
+
+        ;; Calculated reading time (hr)
+        (= "reading-time-hour" function) (println (min->hrs (:calculated_reading_time_in_minutes input-map)))
+
+        ;; Calculated reading time (min)
+        (= "reading-time-minute" function) (println (:calculated_reading_time_in_minutes input-map))
+
+        ;; Number of five minute verses
+        (= "five-minute-verses" function) (println (five-min-verses (:calculated_reading_time_in_minutes input-map)))
+        
+        ;; More functions to follow...
+
+        ;; ...
+
+        (= nil function) (println "Error. You must specify a function.")
+
+        :else (println "Invalid command. Use 'help' for the list of available commands.")))
+
+
+;; (println (first *command-line-args*))
+
+;; (println *command-line-args*)
+
+;; (println (type *command-line-args*))
+
+;; (println (type (first *command-line-args*)))
+
+(-main (first *command-line-args*))
