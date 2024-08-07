@@ -2,31 +2,31 @@
  :deps {medley/medley {:mvn/version "1.3.0"}}
  :min-bb-version "0.4.0"
  :tasks
- {directory {:doc "Number of words in directory"
-           :task (shell "./word-count.sh book")}
-
+ {
+  
+  word-total {:doc "Given a path, calculates the total number of words (recursive)"
+              :task (shell "./metronome.clj number-of-words")} 
+  
   word-count {:doc "List of durations in seconds"
-            :task (shell "./csv.clj cache/num-words.csv")}
-
-  file {:doc "Produces word-count, reading-count, ..., ..., ... , raw to .999-refined"
-        :task (shell "./metronome.clj file")}
+              :task (shell "./csv.clj cache/num-words.csv")}
   
   reading-speed {:doc "Reading speed (wpm)"
         :task (shell "./metronome.clj reading-speed")}
   
-
-  word-total {:doc "The Word Total of the path provided."
-               :task (shell "./metronome.clj number-of-words")} 
+  reading-time-minute {:doc "Calculated reading time (min)"
+                       :task (shell "./metronome.clj reading-time-minute")}
   
   reading-time-hour {:doc "Calculated reading time (hr)"
                    :task (shell "./metronome.clj reading-time-hour")}
 
-  reading-time-minute {:doc "Calculated reading time (min)"
-                   :task (shell "./metronome.clj reading-time-minute")}
-
   reading-time-verses {:doc "Calculated reading time (5 min)"
                      :task (shell "./metronome.clj five-minute-verses")}
-
+  
+  directory {:doc "Number of words in directory"
+             :task (shell "./word-count.sh book")} 
+  
+  file {:doc "Produces word-count, reading-count, ..., ..., ... , raw to .999-refined"
+        :task (shell "./metronome.clj file")}
 
   ;; More tasks to follow ...
   ;; ...

@@ -50,9 +50,9 @@ def main(param_dict):
 
     reading_time = calculate_reading_time(num_words, reading_speed)
 
-    print("Reading speed (wpm): " + str(reading_speed))
-    print("Number of words found: " + str(num_words))
-    print("Calculated reading time (min): {:.2f}".format(reading_time, num_words, reading_speed))
+    log.debug("Reading speed (wpm): " + str(reading_speed))
+    log.debug("Number of words found: " + str(num_words))
+    log.debug("Calculated reading time (min): {:.2f}".format(reading_time, num_words, reading_speed))
 
     param_dict["calculated_reading_time_in_minutes"] = reading_time
     return param_dict

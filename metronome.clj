@@ -19,15 +19,14 @@
 
 
 (require '[cheshire.core :as json]
-          '[clojure.java.io :as io]
-          )
+          '[clojure.java.io :as io])
 
 (def f-cache-share "cache/shareable-file.json") ; F_CACHE_SHARE
 
 (defn rewrite-file [file-path new-content]
   (with-open [writer (io/writer file-path)]
     (.write writer new-content))
-  "IO-Operation: The clojure.java.io/writer function was called then it executed")
+  (str "IO-Operation: The clojure.java.io/writer function was executed\n" (System/getProperty "user.dir") "/" file-path))
 
 (defn five-min-verses[reading_time]
   (/ reading_time 5))
@@ -49,23 +48,23 @@
 (defn -main [function]
   (cond (= "help" function) (println "Available commands: file, help, ")
 
-        ;; Produces word-count, reading-count, ..., ..., ... , raw to .999-refined 
-        (= "file" function) (println (rewrite-file f-cache-share (json/generate-string output-map-1)))
+        ;; Number of words
+        (= "number-of-words" function) (println (:num_words input-map))
 
         ;; Reading speed (wpm) 
         (= "reading-speed" function) (println (:reading_speed input-map))
 
-        ;; Number of words
-        (= "number-of-words" function) (println (:num_words input-map))
+        ;; Calculated reading time (min)
+        (= "reading-time-minute" function) (println (:calculated_reading_time_in_minutes input-map))
 
         ;; Calculated reading time (hr)
         (= "reading-time-hour" function) (println (min->hrs (:calculated_reading_time_in_minutes input-map)))
 
-        ;; Calculated reading time (min)
-        (= "reading-time-minute" function) (println (:calculated_reading_time_in_minutes input-map))
-
         ;; Number of five minute verses
         (= "five-minute-verses" function) (println (five-min-verses (:calculated_reading_time_in_minutes input-map)))
+
+        ;; Produces word-count, reading-count, ..., ..., ... , raw to .999-refined 
+        (= "file" function) (println (rewrite-file f-cache-share (json/generate-string output-map-1)))
         
         ;; More functions to follow...
 
@@ -75,13 +74,5 @@
 
         :else (println "Invalid command. Use 'help' for the list of available commands.")))
 
-
-;; (println (first *command-line-args*))
-
-;; (println *command-line-args*)
-
-;; (println (type *command-line-args*))
-
-;; (println (type (first *command-line-args*)))
 
 (-main (first *command-line-args*))

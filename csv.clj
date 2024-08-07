@@ -34,8 +34,7 @@
   (doseq [row (csv-map :body)] (println row))
   )
 
-;; (csv-print csv)
-
+;; Totals the second column in the num-words.csv file
 (def total (reduce (fn [acc v] (+ acc (Integer/parseInt (get v 1)))) 0 (csv :body)))
 
 (println total)
