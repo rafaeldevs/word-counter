@@ -8,7 +8,7 @@
               :task (shell "./csv.clj cache/num-words.csv")}
   
   word-total {:doc "Calculates the total number of words (recursive)"
-              :task (shell "./metronome.clj number-of-words")} 
+              :task (shell "./metronome.clj word-total")} 
   
   reading-speed {:doc "Displays set reading speed. To configure see `reading_speed` variable found in `calc-reading-time.py`"
         :task (shell "./metronome.clj reading-speed")}

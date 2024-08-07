@@ -49,7 +49,7 @@
   (cond (= "help" function) (println "Available commands: file, help, ")
 
         ;; Number of words
-        (= "number-of-words" function) (println (:num_words input-map))
+        (= "word-total" function) (println (:num_words input-map))
 
         ;; Reading speed (wpm) 
         (= "reading-speed" function) (println (:reading_speed input-map))
