@@ -15,10 +15,15 @@
   ;;  limitations under the License.
 
 
+(require '[clojure.data.csv :as csv]
+          '[clojure.java.io :as io])
+
 ;; read the file path of the CSV from the command line args
 (def csv-file-path (first *command-line-args*))
 
-;; read the CSV line-by-line into a data structure
+;; Read the CSV line-by-line into a data structure. 
+;;    Each record becomes a vector [ cell-1 cell-2 ]
+;;    Record Vectors are populated into a Table Vector
 (def csv-data
     (with-open [reader (io/reader csv-file-path)]
     ;; Babashka aliases clojure.data.csv as csv
@@ -31,8 +36,7 @@
 
 (defn csv-print [csv-map]
   (println (csv-map :headers))
-  (doseq [row (csv-map :body)] (println row))
-  )
+  (doseq [row (csv-map :body)] (println row)))
 
 ;; Totals the second column in the num-words.csv file
 (def total (reduce (fn [acc v] (+ acc (Integer/parseInt (get v 1)))) 0 (csv :body)))
