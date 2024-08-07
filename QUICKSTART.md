@@ -13,7 +13,7 @@ This guide provides an overview of the Babashka tasks available for this word co
 After installing Babashka, Python, and granting the correct permissions to the `word-count.sh` and `metronome.clj` files you should be able to issue commands successfully.
 
 - Babashka (v1.3.18 used in development/testing)
-- Python - Babashka (v3.10.12 used in development/testing)
+- Python (v3.10.12 used in development/testing)
 
 ## How to Use
 
