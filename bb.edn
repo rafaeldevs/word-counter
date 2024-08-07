@@ -22,10 +22,10 @@
   reading-time-verses {:doc "Calculate five-minute reading intervals found in the target directory"
                      :task (shell "./metronome.clj five-minute-verses")}
   
-  directory {:doc "Analyzes a target a directory, by summing up word count, calculating reading time, ... Exports result to JSON file and console"
+  directory {:doc "Analyzes target a directory (sums word count, calculates reading time, ) Exports JSON file and STDOUT"
              :task (shell "./word-count.sh book")} 
   
-  file {:doc "Exports metrics such as word-count, reading-time, ... to a JSON file (Same as `directory`. less console output)"
+  file {:doc "Analyzes target a directory (sums word count, calculates reading time, ) Exports JSON file. Less console output"
         :task (shell "./metronome.clj file")}
 
   ;; More tasks to follow ...

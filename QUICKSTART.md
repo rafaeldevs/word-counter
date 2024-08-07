@@ -75,13 +75,13 @@ The following task can be executed on the command line
    ![](screenshots/bb-reading-time-verses.png)
 
 8. **Directory**
-   - **Description:** Analyzes a target a directory, by summing up word count, calculating reading time, ... Exports result to JSON file and console
+   - **Description:** Analyzes target a directory (sums word count, calculates reading time, ) Exports JSON file and STDOUT
    - **Command:** `bb directory`
 
    ![](screenshots/bb-directory.png)
 
 9. **File**
-   - **Description:** Exports metrics such as word-count, reading-time, ... to a JSON file (Same as `directory`. less console output)
+   - **Description:** Analyzes target a directory (sums word count, calculates reading time, ) Exports JSON file. Less console output
    - **Command:** `bb file`
 
    ![](screenshots/bb-file.png)
