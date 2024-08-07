@@ -4,28 +4,28 @@
  :tasks
  {
   
-  word-total {:doc "Given a path, calculates the total number of words (recursive)"
-              :task (shell "./metronome.clj number-of-words")} 
-  
-  word-count {:doc "List of durations in seconds"
+  word-count {:doc "Sums the num_words column in num-words.csv"
               :task (shell "./csv.clj cache/num-words.csv")}
   
-  reading-speed {:doc "Reading speed (wpm)"
+  word-total {:doc "Calculates the total number of words (recursive)"
+              :task (shell "./metronome.clj number-of-words")} 
+  
+  reading-speed {:doc "Displays set reading speed. To configure see `reading_speed` variable found in `calc-reading-time.py`"
         :task (shell "./metronome.clj reading-speed")}
   
-  reading-time-minute {:doc "Calculated reading time (min)"
+  reading-time-minute {:doc "Calculate reading time in minutes found in the target directory"
                        :task (shell "./metronome.clj reading-time-minute")}
   
-  reading-time-hour {:doc "Calculated reading time (hr)"
+  reading-time-hour {:doc "Calculate reading time in hours found in the target directory"
                    :task (shell "./metronome.clj reading-time-hour")}
 
-  reading-time-verses {:doc "Calculated reading time (5 min)"
+  reading-time-verses {:doc "Calculate five-minute reading intervals found in the target directory"
                      :task (shell "./metronome.clj five-minute-verses")}
   
-  directory {:doc "Number of words in directory"
+  directory {:doc "Analyzes a target a directory, by summing up word count, calculating reading time, ... Exports result to JSON file and console"
              :task (shell "./word-count.sh book")} 
   
-  file {:doc "Produces word-count, reading-count, ..., ..., ... , raw to .999-refined"
+  file {:doc "Exports metrics such as word-count, reading-time, ... to a JSON file (Same as `directory`. less console output)"
         :task (shell "./metronome.clj file")}
 
   ;; More tasks to follow ...

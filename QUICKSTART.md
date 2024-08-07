@@ -33,19 +33,19 @@ By following this guide, you can efficiently utilize the Babashka tasks to manag
 The following task can be executed on the command line
 
 1. **Help**
-   - **Description:** Display the available Babashka tasks and their documentation
+   - **Description:** Display the available Babashka tasks with documentation
    - **Command:** `bb tasks`
 
    ![](screenshots/bb-tasks.png)
 
 2. **Word Count**
-   - **Description:** Given a path, sums the num_words column in mun-words.csv
+   - **Description:** Sums the num_words column in num-words.csv
    - **Command:** `bb word-count`
 
    ![](screenshots/bb-word-count.png)
 
 3. **Word Total**
-   - **Description:** Given a path, calculates the total number of words (recursive)
+   - **Description:** Calculates the total number of words (recursive)
    - **Command:** `bb word-total`
    
    ![](screenshots/bb-word-total.png)
@@ -57,31 +57,31 @@ The following task can be executed on the command line
    ![](screenshots/bb-reading-speed.png)
 
 5. **Reading Time (Minute)**
-   - **Description:** Calculate reading time in minutes.
+   - **Description:** Calculate reading time in minutes found in the target directory
    - **Command:** `bb reading-time-minute`
 
    ![](screenshots/bb-reading-time-minute.png)
 
 6. **Reading Time (Hour)**
-   - **Description:** Calculate reading time in hours.
+   - **Description:** Calculate reading time in hours found in the target directory
    - **Command:** `bb reading-time-hour`
 
    ![](screenshots/bb-reading-time-hour.png)
 
 7. **Reading Time (Verses)**
-   - **Description:** Calculate reading time in five-minute intervals.
+   - **Description:** Calculate five-minute reading intervals found in the target directory
    - **Command:** `bb reading-time-verses`
 
    ![](screenshots/bb-reading-time-verses.png)
 
 8. **Directory**
-   - **Description:** Given a directory sums the number of words and more
+   - **Description:** Analyzes a target a directory, by summing up word count, calculating reading time, ... Exports result to JSON file and console
    - **Command:** `bb directory`
 
    ![](screenshots/bb-directory.png)
 
 9. **File**
-   - **Description:** Produces word-count, reading-count, raw to .999-refined.
+   - **Description:** Exports metrics such as word-count, reading-time, ... to a JSON file (Same as `directory`. less console output)
    - **Command:** `bb file`
 
    ![](screenshots/bb-file.png)
