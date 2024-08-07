@@ -19,7 +19,8 @@
 
 
 (require '[cheshire.core :as json]
-          '[clojure.java.io :as io])
+          '[clojure.java.io :as io]
+         '[clojure.math :as math])
 
 (def f-cache-share "cache/shareable-file.json") ; F_CACHE_SHARE
 
@@ -55,13 +56,13 @@
         (= "reading-speed" function) (println (:reading_speed input-map))
 
         ;; Calculated reading time (min)
-        (= "reading-time-minute" function) (println (:calculated_reading_time_in_minutes input-map))
+        (= "reading-time-minute" function) (println (math/round (:calculated_reading_time_in_minutes input-map)))
 
         ;; Calculated reading time (hr)
-        (= "reading-time-hour" function) (println (min->hrs (:calculated_reading_time_in_minutes input-map)))
+        (= "reading-time-hour" function) (println (math/round (min->hrs (:calculated_reading_time_in_minutes input-map))))
 
         ;; Number of five minute verses
-        (= "five-minute-verses" function) (println (five-min-verses (:calculated_reading_time_in_minutes input-map)))
+        (= "five-minute-verses" function) (println (math/round (five-min-verses (:calculated_reading_time_in_minutes input-map))))
 
         ;; Produces word-count, reading-count, ..., ..., ... , raw to .999-refined 
         (= "file" function) (println (rewrite-file f-cache-share (json/generate-string output-map-1)))
