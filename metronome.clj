@@ -46,7 +46,7 @@
 
 
 (defn -main [function]
-  (cond (= "help" function) (println "Available commands: file, help, ")
+  (cond (= "help" function) (println "Use 'bb tasks' to view the available commands")
 
         ;; Number of words
         (= "word-total" function) (println (:num_words input-map))
@@ -72,7 +72,7 @@
 
         (= nil function) (println "Error. You must specify a function.")
 
-        :else (println "Invalid command. Use 'help' for the list of available commands.")))
+        :else (println "Invalid command. Use 'bb tasks' to view the available commands")))
 
 
 (-main (first *command-line-args*))
