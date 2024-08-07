@@ -10,19 +10,22 @@ This guide provides an overview of the Babashka tasks available for this word co
 
 ## Requirements
 
-This project ships with batteries included. In other words after installing Babashka and granting the correct permissions to the `word-count.sh` and `metronome.clj` files you should be able to issue commands successfully.
+After installing Babashka, Python, and granting the correct permissions to the `word-count.sh` and `metronome.clj` files you should be able to issue commands successfully.
 
-- babashka v1.3.18
+- Babashka (v1.3.18 used in development/testing)
+- Python - Babashka (v3.10.12 used in development/testing)
 
 ## How to Use
 
 1. **Install Babashka**: Make sure you have Babashka installed on your system. You can download it from [Babashka GitHub](https://github.com/babashka/babashka).
 
 2. **Grant executable file permissions to files**: `word-count.sh` and `metronome.clj`
-   a. `chmod +x word-count.sh`
-   b. `chmod +x metronome.clj`
+   - `chmod +x word-count.sh`
+   - `chmod +x metronome.clj`
 
-3. **Execute Tasks**: The first two tasks are ready, rest need QA
+3. **Execute Tasks**: All tasks work and the project is configured for development. 
+
+> If you want to get the word count of a directory use `word-count.sh <dir>` or modify the `directory` Babashka task found in `bb.edn` with your directory.
 
 4. **Customize**: In development
 
