@@ -42,7 +42,7 @@ process_folder() {
             # Count the number of words in a given file
             local num_words=$(wc -w < "$file")
 
-            # PProcess each file with the count_words functionopulate the cache with the relative file path of the file and the number of words it contains
+            # Populate the cache with the relative file path of the the found file and the number of words it contains
             build_cache $file $num_words
         done
     else
