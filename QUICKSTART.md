@@ -55,13 +55,14 @@ The following task can be executed on the command line
    ![](screenshots/bb-word-count.png)
 
 3. **Help**
-   - **Description:** Display the help message.
-   - **Command:** `bb help`
-   - **Task:** Executes the `./metronome.clj help` script and overrides the builtin help.
+   - **Description:** Display available list of tasks
+   - **Command:** `bb tasks`
    - **Documentation:** `Help message`
    ```bash
-   bb help
+   bb tasks
    ```
+
+   ![](screenshots/bb-tasks.png)
 
 4. **File**
    - **Description:** Produces word-count, reading-count, raw to .999-refined.

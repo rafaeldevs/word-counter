@@ -6,12 +6,7 @@
            :task (shell "./word-count.sh book")}
 
   word-count {:doc "List of durations in seconds"
-                     :task (shell "./csv.clj cache/num-words.csv")}
-
-  help {:doc "Help message"
-        :task (shell "./metronome.clj help")
-        :override-builtin true}
-  
+            :task (shell "./csv.clj cache/num-words.csv")}
 
   file {:doc "Produces word-count, reading-count, ..., ..., ... , raw to .999-refined"
         :task (shell "./metronome.clj file")}
