@@ -23,7 +23,7 @@
                      :task (shell "./metronome.clj five-minute-verses")}
   
   directory {:doc "Analyzes target a directory (sums word count, calculates reading time, ) Exports JSON file and STDOUT"
-             :task (shell "./word-count.sh book")} 
+             :task (shell (str "./word-count.sh" " " (if (nil? *command-line-args*) "book" (first *command-line-args*))))} 
   
   file {:doc "Analyzes target a directory (sums word count, calculates reading time, ) Exports JSON file. Less console output"
         :task (shell "./metronome.clj file")}
